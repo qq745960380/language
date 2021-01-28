@@ -10,21 +10,14 @@ export function login(data) {
     }
   });
 }
-// export function login(data) {
-//   return request({
-//     url: '/vue-admin-template/user/login',
-//     method: 'post',
-//     data,
-//     headers: {
-
-//     }
-//   });
-// }
 export function getInfo(token) {
   return request({
-    url: '/vue-admin-template/user/info',
+    url: '/api/user/info',
     method: 'get',
-    params: { token }
+    params: { token },
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
   });
 }
 

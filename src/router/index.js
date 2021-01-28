@@ -80,20 +80,18 @@ export const constantRoutes = [
       }
     ]
   },
-
   {
-    path: '/form',
+    path: '/project',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        name: 'Project',
+        component: () => import('@/views/project/index'),
+        meta: { title: '我的项目', icon: 'form' }
       }
     ]
   },
-
   {
     path: '/nested',
     component: Layout,
