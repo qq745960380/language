@@ -46,7 +46,12 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true
   },
-
+  {
+    path: '/recordExport',
+    name: 'recordExport',
+    component: () => import('@/views/project/RecordTree'),
+    hidden: true
+  },
   {
     path: '/',
     component: Layout,
@@ -85,7 +90,7 @@ export const constantRoutes = [
     component: Layout,
     children: [
       {
-        path: 'index',
+        path: '/project',
         name: 'Project',
         component: () => import('@/views/project/index'),
         meta: { title: '我的项目', icon: 'form' }
@@ -167,7 +172,7 @@ export const constantRoutes = [
 ];
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
+  mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 });
@@ -176,8 +181,9 @@ const router = createRouter();
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
-  const newRouter = createRouter();
-  router.matcher = newRouter.matcher; // reset router
+  // const newRouter = createRouter();
+  // console.log(router, 'router');
+  // router.matcher = newRouter.matcher; // reset router
 }
 
 export default router;

@@ -20,7 +20,7 @@
         <el-input
           ref="username"
           v-model="loginForm.username"
-          placeholder="Username"
+          placeholder="username"
           name="username"
           type="text"
           tabindex="1"
@@ -68,25 +68,20 @@
 </template>
 
 <script>
-
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
       loginForm: {
-        username: "chenjie",
-        password: "chenjie"
+        username: 'chenjie',
+        password: 'chenjie'
       },
       loginRules: {
-        username: [
-          { required: true, trigger: "blur" }
-        ],
-        password: [
-          { required: true, trigger: "blur" }
-        ]
+        username: [{ required: true, trigger: 'blur' }],
+        password: [{ required: true, trigger: 'blur' }]
       },
       loading: false,
-      passwordType: "password",
+      passwordType: 'password',
       redirect: undefined
     };
   },
@@ -98,12 +93,13 @@ export default {
       immediate: true
     }
   },
+  created() {},
   methods: {
     showPwd() {
-      if (this.passwordType === "password") {
-        this.passwordType = "";
+      if (this.passwordType === 'password') {
+        this.passwordType = '';
       } else {
-        this.passwordType = "password";
+        this.passwordType = 'password';
       }
       this.$nextTick(() => {
         this.$refs.password.focus();
@@ -112,18 +108,19 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
+          console.log('sss');
           this.loading = true;
           this.$store
-            .dispatch("user/login", this.loginForm)
+            .dispatch('user/login', this.loginForm)
             .then(() => {
-              this.$router.push({ path: this.redirect || "/" });
+              this.$router.push({ path: this.redirect || '/' });
               this.loading = false;
             })
             .catch(() => {
               this.loading = false;
             });
         } else {
-          console.log("error submit!!");
+          console.log('error submit!!');
           return false;
         }
       });

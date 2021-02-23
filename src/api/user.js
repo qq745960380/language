@@ -4,26 +4,20 @@ export function login(data) {
   return request({
     url: '/api/user/login',
     method: 'post',
-    data,
-    headers: {
-
-    }
+    data
   });
 }
-export function getInfo(token) {
+export function getInfo() {
   return request({
     url: '/api/user/info',
-    method: 'get',
-    params: { token },
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
+    method: 'get'
   });
 }
 
-export function logout() {
+export function getUser() {
   return request({
-    url: '/vue-admin-template/user/logout',
-    method: 'post'
+    url: '/api/user/getUser',
+    method: 'get'
   });
 }
+
