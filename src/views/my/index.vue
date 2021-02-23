@@ -5,12 +5,15 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
-  name: "Dashboard",
+  name: 'Dashboard',
   computed: {
-    ...mapGetters(["name"])
+    ...mapGetters(['name'])
+  },
+  created() {
+    console.log('jj');
   }
 };
 </script>

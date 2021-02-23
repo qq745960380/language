@@ -59,7 +59,6 @@ export default {
         path: '/recordExport',
         query: { projectId: this.projectDetail.projectId }
       });
-      console.log(routeData, 'routeData');
       window.open(routeData.href, '_blank');
     },
     // 新增一行

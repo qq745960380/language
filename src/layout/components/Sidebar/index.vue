@@ -31,7 +31,6 @@ export default {
       'sidebar'
     ]),
     routes() {
-      console.log(this.$router, "$router$router$router");
       return this.$router.options.routes;
     },
     activeMenu() {

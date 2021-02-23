@@ -108,7 +108,6 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          console.log('sss');
           this.loading = true;
           this.$store
             .dispatch('user/login', this.loginForm)

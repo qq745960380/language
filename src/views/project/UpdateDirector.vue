@@ -64,9 +64,6 @@ export default {
   },
   created() {
     this.getDirector();
-    setTimeout(() => {
-      console.log(this.userInfo, 'assasaas');
-    }, 2000);
   },
   methods: {
     async getDirector() {
@@ -108,7 +105,6 @@ export default {
       const result = await delDirector({ projectId: this.projectDetail.projectId, userId: row.userId });
       const { status } = result;
       if (status) {
-        console.log(row.userId, this.userInfo.userId);
         this.$message.success('删除成功');
         this.$emit('listenDirector');
         if (row.userId === this.userInfo.userId) {

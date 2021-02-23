@@ -69,16 +69,12 @@ export default {
     this.getProjectList();
     console.log('为撒');
   },
-  activated() {
-    console.log(1111);
-  },
   methods: {
     async getProjectList() {
       const result = await getProjectList();
       const { code, data } = result;
       if (code === 0) {
         this.projectList = data.list;
-        console.log(this.projectList, 'this.projectList');
       }
     },
     handleAddProject() {
