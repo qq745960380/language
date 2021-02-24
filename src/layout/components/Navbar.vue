@@ -7,12 +7,12 @@
     />
 
     <breadcrumb class="breadcrumb-container" />
-
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
+          <span class="username">{{ userInfo.nickname }}</span>
           <img
-            :src=" avatar ? avatar + '?imageView2/1/w/80/h/80' : 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif' "
+            :src=" userInfo.avatar ? userInfo.avatar + '?imageView2/1/w/80/h/80' : 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif' "
             class="user-avatar"
           >
           <i class="el-icon-caret-bottom" />
@@ -43,7 +43,7 @@ export default {
     Hamburger
   },
   computed: {
-    ...mapGetters(['sidebar', 'avatar'])
+    ...mapGetters(['sidebar', 'userInfo'])
   },
   methods: {
     toggleSideBar() {
@@ -116,16 +116,21 @@ export default {
       margin-right: 30px;
 
       .avatar-wrapper {
-        margin-top: 5px;
+        // margin-top: 5px;
         position: relative;
-
+        display: flex;
+        align-items: center;
+        .username{
+          display: inline-block;
+          font-size: 16px;
+          margin-right: 5px;
+        }
         .user-avatar {
           cursor: pointer;
           width: 40px;
           height: 40px;
           border-radius: 10px;
         }
-
         .el-icon-caret-bottom {
           cursor: pointer;
           position: absolute;

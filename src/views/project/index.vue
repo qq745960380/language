@@ -25,6 +25,14 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination
+      class="page"
+      layout="prev, pager, next"
+      :total="total"
+      :current-page="currentPage"
+      @current-change="handleCurrentPage"
+    />
+
     <!-- 新增项目 -->
     <el-dialog title="新增项目" :visible.sync="addProjectVisible" width="440px">
       <AddProject v-if="addProjectVisible" @listenClose="handleAddProjectClose" />
@@ -61,20 +69,24 @@ export default {
       addProjectVisible: false, // 增加项目 弹窗
       projectDetailVisible: false, // 项目详情 弹窗
       updateDirectorVisible: false, // 增加负责人 弹窗
-      projectDetail: {}
+      projectDetail: {},
+      currentPage: 1,
+      pageSize: 10,
+      total: 0
+
     };
   },
   computed: {},
-  mounted() {
+  created() {
     this.getProjectList();
-    console.log('为撒');
   },
   methods: {
     async getProjectList() {
-      const result = await getProjectList();
+      const result = await getProjectList({ currentPage: this.currentPage, pageSize: this.pageSize });
       const { code, data } = result;
       if (code === 0) {
         this.projectList = data.list;
+        this.total = data.count;
       }
     },
     handleAddProject() {
@@ -105,6 +117,10 @@ export default {
     },
     handleDirectorClose() {
       this.updateDirectorVisible = false;
+    },
+    handleCurrentPage(current) {
+      this.currentPage = current;
+      this.getProjectList();
     }
 
   }
@@ -130,6 +146,11 @@ export default {
       line-height: 26px;
     }
   }
+  .page{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+   }
 }
 
 </style>

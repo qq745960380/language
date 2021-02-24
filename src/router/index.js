@@ -72,13 +72,26 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/member',
+    component: Layout,
+    redirect: '/member/manage',
+    children: [
+      {
+        path: 'manage',
+        name: 'ManageMember',
+        component: () => import('@/views/member/index'),
+        meta: { title: '成员管理', icon: 'form' }
+      }
+    ]
+  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ];
 
 const createRouter = () => new Router({
-  mode: 'history', // require service support
+  // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 });

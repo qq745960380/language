@@ -1,15 +1,16 @@
 import request from '@/utils/request';
 
-export function getProjectList() {
+export function getProjectList(data) {
   return request({
-    url: '/api/project/getProjectList',
-    method: 'get'
+    url: '/project/getProjectList',
+    method: 'get',
+    params: data
   });
 }
 
 export function getNewProject(data) {
   return request({
-    url: '/api/project/getNewProject',
+    url: '/project/getNewProject',
     method: 'post',
     data
   });
@@ -17,7 +18,7 @@ export function getNewProject(data) {
 
 export function delProject(data) {
   return request({
-    url: '/api/project/delProject',
+    url: '/project/delProject',
     method: 'post',
     data
   });
@@ -26,7 +27,7 @@ export function delProject(data) {
 // 增加项目记录
 export function addProjectRecord(data) {
   return request({
-    url: '/api/project/addRecord',
+    url: '/project/addRecord',
     method: 'post',
     data
   });
@@ -34,7 +35,7 @@ export function addProjectRecord(data) {
 // 删除项目记录
 export function delProjectRecord(data) {
   return request({
-    url: '/api/project/delRecord',
+    url: '/project/delRecord',
     method: 'post',
     data
   });
@@ -42,7 +43,7 @@ export function delProjectRecord(data) {
 
 export function getProjectRecord(data) {
   return request({
-    url: '/api/project/getRecord',
+    url: '/project/getRecord',
     method: 'post',
     data
   });
@@ -51,7 +52,7 @@ export function getProjectRecord(data) {
 // 查询导出的记录数据
 export function getExportRecord(data) {
   return request({
-    url: '/api/project/getExportRecord',
+    url: '/project/getExportRecord',
     method: 'get',
     params: data
   });
@@ -60,7 +61,7 @@ export function getExportRecord(data) {
 // 更新项目记录
 export function updateProjectRecord(data) {
   return request({
-    url: '/api/project/updateRecord',
+    url: '/project/updateRecord',
     method: 'post',
     data
   });
@@ -69,7 +70,7 @@ export function updateProjectRecord(data) {
 // 查询项目负责人
 export function getDirector(data) {
   return request({
-    url: '/api/project/getDirector',
+    url: '/project/getDirector',
     method: 'get',
     params: data
   });
@@ -78,7 +79,7 @@ export function getDirector(data) {
 // 增加项目负责人
 export function addDirector(data) {
   return request({
-    url: '/api/project/addDirector',
+    url: '/project/addDirector',
     method: 'post',
     data
   });
@@ -87,7 +88,7 @@ export function addDirector(data) {
 // 删除项目负责人
 export function delDirector(data) {
   return request({
-    url: '/api/project/delDirector',
+    url: '/project/delDirector',
     method: 'post',
     data
   });

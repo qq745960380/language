@@ -37,12 +37,12 @@ module.exports = {
       errors: true
     },
     proxy: {
-      '/dev-api/api': {
-        target: 'http://localhost:3000',
-        pathRewrite: { '^/dev-api/api': '' }
+      '/api': {
+        target: 'http://localhost:3000'
+        // pathRewrite: { '/api': '' }
       }
-    },
-    after: require('./mock/mock-server.js')
+    }
+    // after: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
@@ -52,9 +52,6 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    },
-    externals: {
-      'AMap': 'AMap' // 高德地图配置
     }
   },
   chainWebpack(config) {
